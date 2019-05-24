@@ -1,0 +1,18 @@
+# Para tener las imágenes en formato .nii con un solo archivo por TC hay que hacer 2 modificaciones previas al cmd que ejecuta el cambio.
+# 1. Identificar manualmente la serie de cortes axiales (30-45) relevantes suficientes para el etiquetado del ROI en el TC.
+# 2. Modificar el archivo de configuración de inicio del software dcm2nii utilizado para el cambio de formato, de la siguiente forma.
+cd ~/mricron
+# Dentro de esta carpeta se encuentran (dir/ls) entre otros los siguientes archivos:
+### dcm2nii.exe - ejecutable del cambio de formato desde terminal de comandos
+### dcm2nii.ini - archivo de configuración de inicio para los cambios de formato desde terminal de comandos
+### dcm2niigui.exe - ejecutable del cambio de formato desde interfaz gráfica de usuario
+### dcm2nii.ini - archivo de configuración de inicio para los cambios de formato desde interfaz gráfica de usuario
+### mricron.exe - ejecutable que abre la interfaz para visualizar imágenes en formato nifti (también tiene su correspondiente archivo de configuración de inicio)
+# Abrir archivo de configuración de inicio en el modo en que vayamos a usar el software, por ejemplo el de comandos.
+dcm2nii.ini
+# Modificar o reemplazar el siguiente parámetro, nulo por defecto, a "Stack3DImagesWithSameAcqNum=1".
+# Ejecutar el comando para generar imágenes de TCs en formato nifti (.nii) de todos los TCs dicom (.dcm) encontrados en una misma carpeta.
+dcm2nii -n y -g n -v y -o ~/output_folder_path ~/input_folder_path
+# "-n y" indica que queremos formato nifti de salida, mientras "-g n" que no esté comprimido (.nii).
+# "-v y" hace que trabaje sobre todas las carpetas de imágenes dicom dentro de la carpeta madre introducida como input, sin tener que ir una a una.
+# "-o " hace referencia a que el siguiente parámetro es la dirección donde queremos el output.
