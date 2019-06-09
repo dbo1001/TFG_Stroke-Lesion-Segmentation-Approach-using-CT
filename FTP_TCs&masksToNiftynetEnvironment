@@ -1,0 +1,185 @@
+@Author: Bárbara Sainz Crespo BSc in Computer Engineering, Escuela Politécnica Superior, Universidad de Burgos.
+@Date: 2019/06/08
+
+# Los primeros pasos para utilizar el protocolo FTP en nuestro cometido, los llevamos a cabo a través del GUI del router.
+## Se configura el router para activar su funcionalidad FTP a través de la dirección IP, conectando un puerto USB que actúe como HDD.
+## Se crea una cuenta de usuario del router, con su usuario y contraseña, que sirve para conectarse al servidor FTP.
+
+# A partir de ahí, nos conectamos al servidor FTP desde el terminal con el comando ftp y aparecerá el prompt "ftp >".
+
+# Para enviar los TCs y sus máscaras para el entrenamiento, nos conectamos desde el terminal del PC.
+# Para más comodidad y ahorrarse el "path" de cada fichero a enviar, nos ubicamos en el directorio donde están los TCs y sus máscaras.
+cd path_directorio_TCs_masks
+ftp
+ftp> open dirección_IP       # Acceso al servidor, sustituyendo "dirección_IP" por la usada previamente en la configuración del router.
+Connected to 85.244.153.13.  # En este caso se utiliza la dirección IP 85.244.153.13 y este es el output.
+220 FTP server ready.
+Name (85.244.153.13:bsc0001): barbara     # Solicita el nombre de usuario y lo introducimos por teclado, en mi caso es "barbara".
+331 User barbara OK. Password required
+Password:                                 # De la misma manera, solicita la contraseña del usuario y hay que introducirla por teclado.
+230 OK. Current restricted directory is / # Indica que nos encontramos ahora en el directorio raíz "/" del servidor FTP.
+Remote system type is UNIX.               # Informa de que el sistema remoto (servidor FTP) es de UNIX.
+ftp> ls                      # Ahora, el comando "ls" listará los ficheros que se encuentran en el servidor FTP.
+200 PORT command successful
+150 Connecting to port 8683
+test.txt
+newTest.txt
+226 2 matches total
+ftp> quote pasv              # Con este comando entramos en modo pasivo.
+227 Entering Passive Mode (85,244,153,13,128,53)
+ftp> binary                  # Así se configura el uso del modo binario para la transferencia de ficheros.
+200 TYPE is now 8-bit binary
+ftp> prompt          # Desactiva el modo interactivo, para evitar que luego se pare constantemente a pedir confirmación con cada fichero.
+Interactive mode off.
+ftp> mput TC001.nii TC001_mask.nii.gz TC002.nii TC002_mask.nii.gz (...)  # Envía una serie de ficheros entre espacios al servidor FTP.
+200 PORT command successfully 
+150 Connecting to port 8929
+226-File successfully transferred
+226 136.431 seconds (measured here), 150.12 Kbytes per second
+ftp: 20971872 bytes enviados en 135.73segundos 154.51a KB/s.
+200 PORT command successful
+150 Connecting to port 5524
+226-File successfully transferred
+226 2.894 seconds (measured here), 132.86 Kbytes per second
+ftp: 393712 bytes enviados en 2.47segundos 159.20a KB/s.
+200 PORT command successful
+150 Connecting to port 5525
+226-File successfully transferred
+226 288.616 seconds (measured here), 70.96 Kbytes per second
+ftp: 20971872 bytes enviados en 288.34segundos 72.73a KB/s.
+200 PORT command successful
+150 Connecting to port 8070
+226-File successfully transferred
+226 3.783 seconds (measured here), 94.56 Kbytes per second
+ftp: 366292 bytes enviados en 3.60segundos 101.69a KB/s.
+(...)
+ftp> ls           # Al finalizar, se puede comprobar que ahora los ficheros enviados están en el servidor FTP.
+200 PORT command successful
+150 Connecting to port 48088
+test.txt
+newTest.txt
+TC001.nii
+TC001_mask.nii.gz
+TC002.nii
+TC002_mask.nii.gz
+TC003.nii
+TC003_mask.nii.gz
+TC004.nii
+TC004_mask.nii.gz
+TC005.nii
+TC005_mask.nii.gz
+TC006.nii
+TC006_mask.nii.gz
+TC007.nii
+TC007_mask.nii.gz
+TC008.nii
+TC008_mask.nii.gz
+TC009.nii
+TC009_mask.nii.gz
+TC010.nii
+TC010_mask.nii.gz
+226 22 matches total
+ftp: 909 bytes recibidos en 0.24segundos 3.82a KB/s.
+
+### Nota: Se puede agilizar y no tener que escribir manualmente todos los ficheros como parámetros de los comandos mput y mget:
+###		  se crea un fichero de texto con la lista de archivos incluidos en la carpeta donde están guardados...
+###		  ls > lista.txt (linux) // dir > lista.txt (windows)  -> y se copia y pega desde ahí.
+
+# Ahora queda conectarse al servidor FTP desde el terminal de la máquina en la que trabajaremos con estos TCs, para descargarlos ahí.
+# Nota importante: para que la conexión funcione, hay que conectarse desde fuera del entorno virtual, lo haremos desde el home.
+ftp
+ftp> open dirección_IP       # Acceso al servidor, sustituyendo "dirección_IP" por la misma usada antes y en la configuración del router.
+Connected to 85.244.153.13.  # Como se puede ver, se utiliza la misma dirección IP 85.244.153.13 de nuevo.
+220 FTP server ready.
+Name (85.244.153.13:bsc0001): barbara     # Solicita el nombre de usuario y lo introducimos por teclado, como antes.
+331 User barbara OK. Password required
+Password:                                 # De la misma forma, solicita la contraseña del usuario y se introduce por teclado.
+230 OK. Current restricted directory is / # Indica que nos encontramos ahora en el directorio raíz "/" del servidor FTP.
+Remote system type is UNIX.               # Informa de que el sistema remoto (servidor FTP) es de UNIX.
+ftp> ls                      # Con el comando "ls" podemos comprobar que los ficheros recién enviados se encuentran en el servidor FTP.
+200 PORT command successful
+150 Connecting to port 57122
+test.txt
+newTest.txt
+TC001.nii
+TC001_mask.nii.gz
+TC002.nii
+TC002_mask.nii.gz
+TC003.nii
+TC003_mask.nii.gz
+TC004.nii
+TC004_mask.nii.gz
+TC005.nii
+TC005_mask.nii.gz
+TC006.nii
+TC006_mask.nii.gz
+TC007.nii
+TC007_mask.nii.gz
+TC008.nii
+TC008_mask.nii.gz
+TC009.nii
+TC009_mask.nii.gz
+TC010.nii
+TC010_mask.nii.gz
+226 22 matches total
+ftp> quote pasv              # Entramos en modo pasivo también desde este terminal.
+227 Entering Passive Mode (85,244,153,13,128,53)
+ftp> binary                  # Configuramos el uso del modo binario para la transferencia de ficheros.
+200 TYPE is now 8-bit binary
+ftp> prompt          # Desactivamos el modo interactivo, para evitar que se pare a pedir confirmación para descargar cada fichero.
+Interactive mode off.
+ftp> mget TC001.nii TC001_mask.nii.gz TC002.nii TC002_mask.nii.gz (...)  # Solicitud para recibir los ficheros listados del servidor FTP.
+local: TC001.nii remote: TC001.nii
+200 PORT command successful
+150-Connecting to port 21812
+150 20480.3 kbytes to download
+226-File successfully transferred
+226 25.074 seconds (measured here), 0.80 Mbytes per second
+20971872 bytes received in 25.07 secs (816.7747 kB/s)
+local: TC001_mask.nii.gz remote: TC001_mask.nii.gz
+200 PORT command successful
+150-Connecting to port 21908
+150 384.5 kbytes to download
+226-File successfully transferred
+226 0.918 seconds (measured here), 418.74 Kbytes per second
+393712 bytes received in 0.91 secs (422.1679 kB/s)
+local: TC002.nii remote: TC002.nii
+200 PORT command successful
+150-Connecting to port 21917
+150 20480.3 kbytes to download
+226-File successfully transferred
+226 25.186 seconds (measured here), 0.79 Mbytes per second
+20971872 bytes received in 25.19 secs (813.1732 kB/s)
+local: TC002_mask.nii.gz remote: TC002_mask.nii.gz
+200 PORT command successful
+150-Connecting to port 22074
+150 357.7 kbytes to download
+226-File successfully transferred
+226 0.803 seconds (measured here), 445.32 Kbytes per second
+366292 bytes received in 0.80 secs (444.5172 kB/s)
+local: TC003.nii remote: TC003.nii
+200 PORT command successful
+150-Connecting to port 22077
+150 15872.3 kbytes to download
+226-File successfully transferred
+226 19.570 seconds (measured here), 0.79 Mbytes per second
+16253280 bytes received in 19.57 secs (811.1025 kB/s)
+(...)
+ftp> !ls           # Con el modificador "!" se puede comprobar que ahora los ficheros enviados están en la máquina local.
+TC001_mask.nii.gz        TC007_mask.nii.gz
+TC001.nii                TC007.nii
+TC002_mask.nii.gz        TC008_mask.nii.gz
+TC002.nii                TC008.nii
+TC003_mask.nii.gz        TC009_mask.nii.gz
+TC003.nii                TC009.nii
+TC004_mask.nii.gz        TC010_mask.nii.gz
+TC004.nii                TC010.nii
+TC005_mask.nii.gz        deepmedic
+TC005.nii                niftynet
+TC006_mask.nii.gz        TCs_mask
+TC006.nii
+ftp> quit          # Ya se puede salir del modo FTP, para volver al terminal de la máquina normalmente.
+221 Logout.
+
+# Ya se pueden usar las imágenes de TCs y sus máscaras en Niftynet, solo con reubicarlas en el entorno virtual niftynet, (comando mv), donde corresponda.
+
