@@ -74,12 +74,12 @@ Se conoce como \textit{Secure SHell} (SSH) tanto al protocolo, como al programa 
 Como se mencionaba previamente, para llevar a cabo este proyecto se hace necesario un procesamiento por parte de GPU. Para ello, disponemos de una máquina a la que acceder a través de un servidor, en este modo remoto. En concreto, se accede a través de una línea de comandos con la siguiente estructura: ssh -X -p 22 usuario@IPservidor. Así, se indica que se van a ejecutar programas con interfaz gráfica  (parámetro "-X"), utilizando el puerto 22, según el segundo parámetro.
 
 
-\section{FTP - FileZilla}
+\section{FTP}
 
 Siguiendo con la utilización de esa máquina más potente, esto supone que se necesite hacer uso de un Protocolo de Transferencia de Archivos, conocido como FTP por sus siglas en inglés (\textit{File Transfer Protocol}), para el intercambio de archivos entre dicha máquina y el equipo personal desde el que se accede a ella en cualquier momento.
 
 Se trata de un protocolo de red basado en la arquitectura cliente-servidor, cuya función es transferir archivos entre sistemas conectados a una red TCP (\textit{Transmission Control Protocol}), independientemente de sus sistemas operativos. \cite{wiki:ftp}
 
-En este caso, para llevar a cabo estas tareas de transferencia de archivos, nos decidimos por instalar FileZilla, una solución libre que se puede encontrar en <https://filezilla-project.org/>.
+En este caso, para llevar a cabo estas tareas de transferencia de archivos, decidimos llevar a cabo directamente en el router la configuración de un servidor FTP y un usuario, a través del cual acceder como cliente desde cualquier terminal.
 
 
