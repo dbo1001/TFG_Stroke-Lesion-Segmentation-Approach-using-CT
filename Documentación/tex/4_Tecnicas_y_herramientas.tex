@@ -1,0 +1,85 @@
+\capitulo{4}{Técnicas y herramientas}
+
+En este apartado se pretende presentar las herramientas de desarrollo utilizadas para llevar a cabo el proyecto, junto con las metodologías correspondientes.
+
+
+\section{Python}
+
+Python es un lenguaje de programación interpretado, con propósito general, tipado dinámicamente y con independencia de plataformas. Soporta programación orientada a objetos, así como imperativa y en menor medida también se utiliza para el desarrollo web o en programación funcional \cite{python}.
+
+Su relativamente reciente expansión y popularidad se explican sobretodo por su simplicidad, ya que su sintaxis favorece un código legible, junto con su versatilidad, rapidez de desarrollo y la gran cantidad de librerías que contiene. Se trata además de un software gratuito, incluso para propósitos empresariales.
+
+En concreto, en este trabajo se ha utilizado Python 3. Todo lo necesario sobre esta herramienta figura en \url{https://www.python.org/}.
+
+
+\section{LaTeX}
+
+\LaTeX es un lenguaje de marcado para la composición de textos de código abierto, formado por un amplio conjunto de macros de TeX, para facilitar la creación de documentos con una alta calidad tipográfica. Esto hace que su uso sea muy popular y conveniente para este tipo de documentación, así como tesis, artículos académicos o libros científicos \cite{wiki:latex}.
+
+Puede encontrarse todo lo necesario sobre LaTex en \url{https://www.latex-project.org/}.
+
+
+\section{Git}
+
+Git es un sistema de control de versiones distribuido de código abierto, cuyo cometido principal es rastrear los cambios realizados durante el desarrollo de software, a la par que coordinar el trabajo entre programadores. Esto permite volver a un punto anterior del desarrollo, si fuera necesario por algún error, o recurrir a cualquier parte de la información recopilada en caso de pérdidas, así como llevar un registro continuado de cuándo y por quién se realizan modificaciones \cite{wiki:git}.
+
+Actualmente, Git es uno de los sistemas más utilizados con este propósito y proporciona todas las herramientas necesarias para llevar el
+control de versiones de una forma simple y eficiente.
+
+Esta herramienta se encuentra a través de la URL \url{https://git-scm.com/}.
+
+
+\section{Github}
+
+Github es una plataforma subsidiaria de Microsoft de código abierto, para su desarrollo colaborativo. La utilización de este servicio de alojamiento basado en web permite contar con un repositorio de este proyecto, así como con todas las funciones de control de versiones distribuidas y administración de código fuente de Git, además de sus propias funciones agregadas \cite{wiki:github}.
+
+Además, permite la integración con otras herramientas muy útiles para la planificación de tareas del proyecto, como Zenhub, la cual se detallará a continuación.
+
+URL de la herramienta: \url{https://github.com/}.
+
+
+\section{Zenhub}
+
+Zenhub es una herramienta de gestión de proyectos integrada con GitHub nativamente, lo que supone que no son necesarias más configuraciones a la hora de incorporarla al repositorio del proyecto.
+
+Las aportaciones que brinda ZenHub a la hora de planificar las distintas fases y tareas del proyecto es de gran ayuda, ofreciendo, por ejemplo, añadir de una manera muy sencilla e intuitiva un coste a las distintas \textit{issues} generadas, así como un tablero Kanban integrado y una serie de diagramas (Burndown y Velocity tracking) que se corresponden con las historias de usuarios y tareas definidas. Así, permite determinar puntos de historia y, en general, planificar de un modo más eficaz nuestros \textit{sprints} o fases temporales constituidas por cierta agrupación de tareas asignadas.
+
+Al tratarse de una herramienta integrada en GitHub, se puede encontrar dentro de su misma página web, más concretamente en la siguiente URL: \url{https://github.com/marketplace/zenhub}.
+
+
+\section{Jupyter}
+
+El Proyecto Jupyter se crea para desarrollar \textit{software} de código y estándares abiertos, así como servicios para la computación interactiva en gran cantidad de lenguajes de programación \cite{wiki:jupyter}.
+
+
+\subsection{Jupyter Notebook}
+
+Se trata de un entorno computacional interactivo basado en la web, para la creación de documentos JSON referidos como \textit{Jupyter notebooks} y de extensión ".ipynb". Este tipo de ficheros siguen un esquema versionado y contienen una serie de celdas ordenadas de entrada/salida, las cuales cuentan principalmente con código y texto (usando \textit{Markdown}), aunque también pueden incluir matemáticas, gráficos, etc. \cite{wiki:jupyter}.
+
+Cuenta con una visualización simplificada y fácilmente accesible en la web, gracias a la librería \textit{nbconvert}. Ésta viene proporcionada a través de NbViewer y lleva una URL a cualquier \textit{notebook} público disponible, para convertirlo sobre la marcha en HTML y, así, mostrarlo al usuario.
+
+
+\subsection{Colaboratory}
+
+Colaboratory, también conocido como ``Colab'', es un entorno libre de \textit{Jupyter Notebook}, cuya ejecución se lleva a cabo en la nube y que guarda sus \textit{notebooks}
+o ficheros de código en Google Drive. Desde septiembre de 2018, Colaboratory solo soporta los núcleos de Python 2 y Python 3, ningún otro núcleo de Jupyter \cite{wiki:jupyter}.
+
+ Se trata de una opción interesante, sobretodo en este caso a la hora de hacer pruebas y comparar distintos \textit{softwares}, para evitar tener que hacer todas esas instalaciones en nuestra máquina, tanto a nivel de espacio como de conflictos de librerías, versiones, etc. Por otra parte, en este proyecto se hacía necesario el uso de GPU, frente a una CPU que se podía quedar corta de potencia, lo cual es precisamente una de las ventajas que ofrece Google Colab en la nube. A través de la siguiente URL se accede a estos \textit{notebooks}: \url{https://colab.research.google.com/}.
+
+
+\section{SSH}
+
+Se conoce como \textit{Secure SHell} (SSH) tanto al protocolo, como al programa que lo implementa, con la función principal del acceso remoto a un servidor, por medio de un canal seguro con la información cifrada \cite{wiki:ssh}.
+
+Como se mencionaba previamente, para llevar a cabo este proyecto se hace necesario un procesamiento por parte de GPU. Para ello, disponemos de una máquina a la que acceder a través de un servidor, en este modo remoto. Haremos las ejecuciones de esa manera, mediante el terminal, gracias al protocolo SSH.
+
+
+\section{FTP}
+
+Siguiendo con la utilización de esa máquina más potente, esto supone que se necesite hacer uso de un Protocolo de Transferencia de Archivos, conocido como FTP por sus siglas en inglés (\textit{File Transfer Protocol}), para el intercambio de archivos entre dicha máquina y el equipo personal desde el que se accede a ella en cualquier momento.
+
+Se trata de un protocolo de red basado en la arquitectura cliente-servidor, cuya función es transferir archivos entre sistemas conectados a una red TCP (\textit{Transmission Control Protocol}), independientemente de sus sistemas operativos \cite{wiki:ftp}.
+
+En este caso, para llevar a cabo estas tareas de transferencia de archivos, decidimos llevar a cabo directamente en el router la configuración de un servidor FTP y un usuario, a través del cual acceder como cliente desde cualquier terminal.
+
+
