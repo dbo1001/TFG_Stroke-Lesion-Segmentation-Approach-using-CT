@@ -1,5 +1,8 @@
-@Author: Bárbara Sainz Crespo BSc in Computer Engineering, Escuela Politécnica Superior, Universidad de Burgos.
-@Date: 2019/06/08
+Configuración y muestra de uso de FTP para la transferencia de ficheros, imágenes de TCs etiquetadas, al entorno virtual de Niftynet, a través de un servidor.
+
+Autor: Bárbara Sainz Crespo - Ingeniería Informática, Escuela Politécnica Superior, Universidad de Burgos.
+
+Fecha: 2019/06/07
 
 # Los primeros pasos para utilizar el protocolo FTP en nuestro cometido, los llevamos a cabo a través del GUI del router.
 ## Se configura el router para activar su funcionalidad FTP a través de la dirección IP, conectando un puerto USB que actúe como HDD.
