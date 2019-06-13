@@ -14,9 +14,9 @@ En concreto, en este trabajo se ha utilizado Python 3. Todo lo necesario sobre e
 
 \section{LaTeX}
 
-\LaTeX es un lenguaje de marcado para la composición de textos de código abierto, formado por un amplio conjunto de macros de TeX, para facilitar la creación de documentos con una alta calidad tipográfica. Esto hace que su uso sea muy popular y conveniente para este tipo de documentación, así como tesis, artículos académicos o libros científicos \cite{wiki:latex}.
+\LaTeX\space es un lenguaje de marcado para la composición de textos de código abierto, formado por un amplio conjunto de macros de TeX, para facilitar la creación de documentos con una alta calidad tipográfica. Esto hace que su uso sea muy popular y conveniente para este tipo de documentación, así como tesis, artículos académicos o libros científicos \cite{wiki:latex}.
 
-Puede encontrarse todo lo necesario sobre LaTex en \url{https://www.latex-project.org/}.
+Puede encontrarse todo lo necesario sobre LaTex en la siguiente URL: \url{https://www.latex-project.org/}.
 
 
 \section{Git}
@@ -69,7 +69,7 @@ o ficheros de código en Google Drive. Desde septiembre de 2018, Colaboratory so
 
 \section{SSH}
 
-Se conoce como \textit{Secure SHell} (SSH) tanto al protocolo, como al programa que lo implementa, con la función principal del acceso remoto a un servidor, por medio de un canal seguro con la información cifrada \cite{wiki:ssh}.
+Se conoce como \textit{Secure SHell} (SSH), tanto al protocolo, como al programa que lo implementa. Su función principal es facilitar el acceso remoto a un servidor, por medio de un canal seguro con la información cifrada \cite{wiki:ssh}.
 
 Como se mencionaba previamente, para llevar a cabo este proyecto se hace necesario un procesamiento por parte de GPU. Para ello, disponemos de una máquina a la que acceder a través de un servidor, en este modo remoto. Haremos las ejecuciones de esa manera, mediante el terminal, gracias al protocolo SSH.
 
@@ -82,4 +82,32 @@ Se trata de un protocolo de red basado en la arquitectura cliente-servidor, cuya
 
 En este caso, para llevar a cabo estas tareas de transferencia de archivos, decidimos llevar a cabo directamente en el router la configuración de un servidor FTP y un usuario, a través del cual acceder como cliente desde cualquier terminal.
 
+
+\section{Visionado y procesado de imágenes TC}
+
+Dado que el elemento principal del proyecto, a nivel de datos, son las imágenes resultantes de Tomografías Computarizadas (TC) simples, es importante poder procesarlas y visionarlas antes y después del entrenamiento y segmentación de las mismas. Para ello, contamos con dos programas, en función de los formatos.
+
+\subsection{MicroDicom}
+
+Inicialmente, la inmensa mayoría de imágenes de TC craneales disponibles se encontraban en formato DICOM (.dcm o dicomdir). Además, cada TC contaba con distinto número de ficheros, así que utilizamos un visor para este formato, con idea de descubrir qué había exactamente detrás de cada fichero y esclarecer su utilidad para el proyecto.
+ 
+MicroDicom es un visor libre de imágenes médicas en formato DICOM para Windows. Está equipado, además, con las herramientas más comunes para la manipulación de este tipo de imágenes, permitiendo el procesado primario y preservación de las mismas, todo ello desde una interfaz sencilla e intuitiva \cite{microdicom}. Por  poner un par de ejemplos, se pueden tomar medidas sobre la misma imagen, así como dibujar formas o regiones manualmente, tal como se ve a continuación.
+\imagen{MicroDicom_Viewer}{Visor MicroDicom mostrando un TC craneal con el perímetro del tejido isquémico dibujado.}
+
+
+\subsection{MRIcron}
+
+Para el entrenamiento y segmentación de imágenes 3D biomédicas con los distintos sistemas probados (incluyendo finalmente el nuestro), se trabaja con el formato NIfTI. Esto supone, primeramente, tener que procesar los ficheros que teníamos (DICOM) para convertirlos a este formato y adecuarlos a las condiciones de entrada del sistema. No sólo eso, sino que también su visualización es especialmente importante cuando se trata de comprobar los datos salida.
+
+En este contexto aparece MRIcron, que nos va a permitir tanto convertir las imágenes de formato DICOM a NIfTI (.nii), como abrir estas últimas para visualizarlas e incluso superponer una o varias máscaras que marquen las regiones de interés, tal como se ve en las siguientes figuras. \imagen{MRIcron_NIIviewer}{Visor MRIcron mostrando el TC craneal original visualizado en DICOM anteriormente.} \imagen{MRIcron_NIIviewer_overlay}{Visor MRIcron mostrando el mismo TC craneal, esta vez con su correspondiente máscara ``pintando'' el tejido isquémico.}
+
+En cuanto a la conversión de formato DICOM a NIfTI mencionada, existe una herramienta interna de este programa llamada ``dcm2nii'' que es la responsable de dicho proceso. Para el uso de dcm2nii, se cuenta con una pequeña interfaz gui, así como con un ejecutable para manejar directamente desde el terminal con líneas de comando propias, cada uno con su correspondiente fichero de configuración.
+
+Más información, descarga e instalación de MRIcron, se encuentran en el siguiente enlace: \url{https://people.cas.sc.edu/rorden/mricron/}.
+
+
+\section{DeepMedic}
+
+
+\section{NiftyNet}
 
