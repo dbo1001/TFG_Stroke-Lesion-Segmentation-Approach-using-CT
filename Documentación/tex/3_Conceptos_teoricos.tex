@@ -8,22 +8,40 @@ En este caso, nos enfocamos en conceptos básicos bastante concretos, dentro de 
 	\item Técnicas de Imagen Biomédica
 \end{itemize}
 
-En el primer caso, los conceptos teóricos neurológicos que nos interesan son los referentes al accidente (o ataque) cerebro-vascular (ACV), más frecuentemente denominado ictus, y el tejido isquémico que resulta del mismo.
+En el primer caso, los conceptos neurológicos que nos interesan son los referentes al accidente (o ataque) cerebro-vascular (ACV), más frecuentemente denominado ictus, y al tejido isquémico que resulta del mismo.
 
-Por otro lado, dentro de las Técnicas de Imagen Biomédica, nos centramos en las Tomografías (Axiales) Computarizadas, conocidas comúnmente como TC o TAC. Principalmente, debemos tener claro el concepto de TC craneal, ya que es el tipo de imagen para el que este proyecto ha sido diseñado. Sin embargo, no está de más conocer por encima algo sobre las Resonancias Magnéticas (MRI por sus siglas en inglés \textit{Magnetic Resonance Imaging}), ya que su comparativa con las Tomografías Computarizadas dan más sentido e importancia a este proyecto.
+En cuanto a las Técnicas de Imagen Biomédica, nos centramos en las Tomografías (Axiales) Computarizadas, conocidas comúnmente como TC o TAC. Principalmente, debemos tener claro el concepto de TC craneal, ya que es el tipo de imagen para el que este proyecto ha sido diseñado. Sin embargo, no está de más conocer algo sobre la Resonancia Magnética (MRI por sus siglas en inglés \textit{Magnetic Resonance Imaging}), ya que su comparativa con la TC da más sentido e importancia a este proyecto.
+
+Por otro lado, en el ámbito de la Ingeniería Informática, se manejan conocimientos relacionados de una u otra manera con el Aprendizaje Automático y su desarrollo. Esta rama, quizás más conocida por su homónimo en inglés \textit{Machine Learning}, engloba conceptos teóricos de áreas como:
+
+\begin{itemize}
+	\item Inteligencia Artificial
+	\item Redes Neuronales
+\end{itemize}
+
+Posteriormente, se desarrollan todos estos conceptos con más detalle.
 
 
 \section{Accidente Cerebrovascular o Ictus}
 
 El accidente (o ataque) cerebrovascular (ACV) es más comúnmente conocido como ictus, pero también mediante otras expresiones como infarto o derrame cerebral, embolia, trombosis o apoplejía \cite{wiki:acv}. No se trata de un uso preciso de dichos términos, ya que los últimos mencionados no son sinónimos, solo que pueden (o no) estar frecuentemente relacionados con la causa o tipo de ictus. Por ejemplo, el hecho de referirse a esta enfermedad cerebrovascular como ``infarto'' frente a ``derrame'' o ``hemorragia'' cerebral, se explica por los dos tipos en que se presenta:
 \begin{description}
-	\item [Ictus isquémico]: causado por una disminución importante en el flujo sanguíneo de una parte del cerebro, ante la oclusión de una arteria, provocando que el tejido cerebral de la zona no reciba la sangre y oxígeno necesarios para su normal funcionamiento. Se calcula que alrededor del 87\% de los ictus son isquémicos \cite{wiki:stroke}.	
+	\item [Ictus isquémico:] causado por una disminución importante en el flujo sanguíneo de una parte del cerebro, ante la oclusión de una arteria, provocando que el tejido cerebral de la zona no reciba la sangre y oxígeno necesarios para su normal funcionamiento. Se calcula que alrededor del 87\% de los ictus son isquémicos \cite{wiki:stroke}.	
 	\imagen{ictus_isquemico}{Esquema representativo de un ictus isquémico.}
 	
-	\item [Ictus hemorrágico]: debido a la rotura de un vaso cerebral, resultando en un sangrado que aumenta la presión sobre el cerebro en esa zona, afectando a su correcto funcionamiento. En algún caso, se pueden combinar, sin saber con certeza cuántos ictus hemorrágicos comenzaron como isquémicos, ya que se puede producir un sangrado en zonas de isquemia \cite{wiki:stroke}.
+	\item [Ictus hemorrágico:] debido a la rotura de un vaso cerebral, resultando en un sangrado que aumenta la presión sobre el cerebro en esa zona, afectando a su correcto funcionamiento. En algún caso, se pueden combinar, sin saber con certeza cuántos ACV de tipo hemorrágico tienen origen isquémico, ya que se puede producir un sangrado en zonas de isquemia \cite{wiki:stroke}.
 	\imagen{ictus_hemorragico}{Esquema representativo de un ictus hemorrágico.}
 \end{description}
 
+En ambos casos, bien por la falta de riego sanguíneo, bien por la presión que ejerce la hemorragia, se produce un daño en el tejido cerebral, pudiendo tener resultados fatales. Es decir, cualquiera que sea el tipo de ictus, como consecuencia se produce una lesión en las células cerebrales de un área del cerebro, las cuales pueden llegar a morir. Esto implica una disminución de la funcionalidad cerebral en esa zona, que puede suponer una discapacidad total o parcial del paciente e incluso su muerte en el peor de los casos.
+
+¿Cuál es el papel de las técnicas de neuroimagen en la identificación y diagnóstico de un ataque cerebrovascular? Principalmente, se trata de evaluar y concretar lo siguiente, en este orden:
+
+\begin{enumerate}
+	\item Confirmar la existencia de un ACV.
+	\item Determinar el tipo de ictus.
+	\item Delimitar la región del cerebro afectada.
+\end{enumerate} 
 
 
 \section{Tomografía Computarizada (TC/TAC)}
@@ -39,6 +57,31 @@ El accidente (o ataque) cerebrovascular (ACV) es más comúnmente conocido como 
 
 
 \subsection{Alternativa a la Resonancia Magnética (MRI)}
+
+¡¡¡EXPLICACIÓN DE MRI!!!
+
+Es importante destacar que este tipo de tecnología para el diagnóstico mediante imagen se encuentra menos disponible que la de CT, siendo sus costes considerablemente más elevados, tanto en términos económicos, como de tiempo \cite{MRIvsTC}. En la práctica, esto resulta clave, puesto que el ictus es una enfermedad cerebrovascular en la que el tiempo de respuesta por parte de los expertos puede ser clave, no solo a la hora de determinar el grado de discapacidad que supondrá para el paciente, sino, en algunos casos, puede incluso marcar la diferencia entre la vida y la muerte. 
+
+Además, no todos los centros médicos pueden permitirse contar con la tecnología y personal experto de MRI, mientras que la de TC es más asequible. Junto a esto, hay que tener en cuenta el hecho de que en algunas personas, por motivos de claustrofobia o de llevar cierto tipo de implante, no puede llevarse a cabo este tipo de prueba magnética  \cite{MRIvsTC}.
+
+Lo que también es cierto, es que resulta más sencillo para el personal médico experto evaluar y reconocer con mayor precisión y seguridad el tejido isquémico, mediante una resonancia magnética \cite{MRIvsTC}. Sin embargo, esto sólo refuerza el hecho de que el desarrollo de una tecnología como esta, por la que apuesta este proyecto, podría suponer un antes y un después, llegando más rápidamente a gran cantidad de pacientes, a través de un mayor número de centros médicos.
+
+
+\section{Inteligencia Artificial}
+
+
+
+
+\section{Minería de Datos}
+
+
+
+
+\section{Redes Neuronales}
+
+
+
+
 
 
 

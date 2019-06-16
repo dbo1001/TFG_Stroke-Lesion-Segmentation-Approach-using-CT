@@ -99,11 +99,15 @@ MicroDicom es un visor libre de imágenes médicas en formato DICOM para Windows
 
 Para el entrenamiento y segmentación de imágenes 3D biomédicas con los distintos sistemas probados (incluyendo finalmente el nuestro), se trabaja con el formato NIfTI. Esto supone, primeramente, tener que procesar los ficheros que teníamos (DICOM) para convertirlos a este formato y adecuarlos a las condiciones de entrada del sistema. No sólo eso, sino que también su visualización es especialmente importante cuando se trata de comprobar los datos salida.
 
-En este contexto aparece MRIcron, que nos va a permitir tanto convertir las imágenes de formato DICOM a NIfTI (.nii), como abrir estas últimas para visualizarlas e incluso superponer una o varias máscaras que marquen las regiones de interés, tal como se ve en las siguientes figuras. \imagen{MRIcron_NIIviewer}{Visor MRIcron mostrando el TC craneal original visualizado en DICOM anteriormente.} \imagen{MRIcron_NIIviewer_overlay}{Visor MRIcron mostrando el mismo TC craneal, esta vez con su correspondiente máscara ``pintando'' el tejido isquémico.}
+En este contexto aparece MRIcron, que nos va a permitir tanto convertir las imágenes de formato DICOM a NIfTI (.nii), como abrir estas últimas para visualizarlas e incluso superponer una o varias máscaras que marquen las regiones de interés (ROI, por sus siglas en inglés \textit{Region Of Interest}), tal como se ve en las figuras \ref{fig:MRIcron_NIIviewer} y \ref{fig:MRIcron_NIIviewer_overlay} respectivamente.
+
+\imagen{MRIcron_NIIviewer}{Visor MRIcron mostrando el TC craneal original visualizado en DICOM anteriormente.}
 
 En cuanto a la conversión de formato DICOM a NIfTI mencionada, existe una herramienta interna de este programa llamada ``dcm2nii'' que es la responsable de dicho proceso. Para el uso de dcm2nii, se cuenta con una pequeña interfaz gui, así como con un ejecutable para manejar directamente desde el terminal con líneas de comando propias, cada uno con su correspondiente fichero de configuración.
 
-Más información, descarga e instalación de MRIcron, se encuentran en el siguiente enlace: \url{https://people.cas.sc.edu/rorden/mricron/}.
+\imagen{MRIcron_NIIviewer_overlay}{Visor MRIcron mostrando el mismo TC craneal, esta vez con su correspondiente máscara ``pintando'' el tejido isquémico.}
+
+Para más información, descarga e instalación de MRIcron, se puede visitar el siguiente enlace: \url{https://people.cas.sc.edu/rorden/mricron/}.
 
 
 \section{DeepMedic}
