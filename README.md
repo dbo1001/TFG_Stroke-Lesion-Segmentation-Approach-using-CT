@@ -1,6 +1,7 @@
 # Aproximación hacia la identificación automática de lesión de ictus en TC craneal
 ### Autor: Bárbara Sainz Crespo
 #### Tutores: Dr. Álvar Arnaiz González y Dr. José Francisco Díez Pastor
+#### En colaboración con: Dra. María Hernández Pérez (Neurología, hospital Germans Trias i Pujol)
 TFG Ingeniería Informática - Universidad de Burgos
 
 
