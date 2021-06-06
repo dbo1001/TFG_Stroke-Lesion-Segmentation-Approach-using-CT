@@ -11,7 +11,7 @@ El ictus es una enfermedad cerebrovascular que supone la primera causa de discap
 La muerte de tejido cerebral que produce (se estima que mueren 2 millones de neuronas por minuto) es irreversible y, aunque el cerebro tiene cierta capacidad de regeneración y neuroplasticidad, son funciones muy limitadas.
 
 En general, la lesión final irreversible se puede identificar con técnicas de neuroimagen a las 24h del ictus y apostamos en concreto por la tomografía computacional (TC) simple, dada su conveniencia en cuanto a disponibilidad y rapidez. Identificar el volumen y localización del tejido dañado aportará información sobre las posibles secuelas y cómo tratarlas de forma más específica y eficaz.
-La disponibilidad y brevedad a la hora de atender este tipo de casos es clave, por ello trataremos de investigar cómo las aplicaciones de Ingeniería Informática podrían ayudar a identificar automáticamente las lesiones de ictus.
+La disponibilidad y brevedad a la hora de atender este tipo de casos es clave, por ello trataremos de investigar cómo las aplicaciones de Ingeniería Informática podrían ayudar a identificar automáticamente las lesiones de ictus. 
 
 ## Planteamiento y objetivo
 
